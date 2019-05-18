@@ -22,7 +22,11 @@ class HomeController extends Controller
         $dt1 = $this->homeModel->getAllData();
         $dt2 = $this->cartModel->getDataById(1);
         $data['info'] = 12;
-        $this->renderView('home/index_view',$data, true);
+        $data['header'] = [
+            'title' => 'Home page',
+            'content' => 'demo oop php'
+        ];
+        $this->renderView('home/index_view',$data);
     }
 
     public function exp(){

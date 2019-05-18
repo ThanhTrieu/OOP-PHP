@@ -11,7 +11,10 @@ class Controller
 		$view = $path;
 		if($type){
 			extract($data);
-		}
+		} 
+		if (isset($data['header'])) {
+			extract($data['header']);
+		} 
 		require 'app/view/layout_view.php';
 	}
 }

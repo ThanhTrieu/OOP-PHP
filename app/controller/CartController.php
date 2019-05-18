@@ -10,6 +10,10 @@ class CartController extends Controller
     public function index(){
         //var_dump($GLOBALS['fullParams']);
         $data['info'] = 12;
+        $data['header'] = [
+            'title' => 'Cart page',
+            'content' => 'demo oop php'
+        ];
         $this->renderView('cart/index_view',$data, true);
     }
 
