@@ -12,11 +12,26 @@ function asset($path='')
     return getRootFolder()."/public/{$path}" ;
 }
 
-function redirect($path = '')
+function redirect($path = '', $params = [], $type = true)
 {
-    $arrParams = explode('/', $path);
-    if(is_array($arrParams) && $arrParams){
-        return getRootFolder()."/".$arrParams[0]."/".$arrParams[1];
+    $arrControllerMethod = explode('/', $path);
+    $stringParam = '';
+    if(is_array($arrControllerMethod) && $arrControllerMethod){
+        if($params){
+            foreach ($params as $key => $p) {
+                if($type){
+                    $stringParam .= (empty($stringParam)) ? $p : '/' . $p ;
+                } else {
+                    $stringParam .= (empty($stringParam)) ? "?{$key}=".$p : "&{$key}=".$p;
+                }
+                
+            }
+        }
+        if($stringParam){
+            return getRootFolder()."/".$arrControllerMethod[0]."/".$arrControllerMethod[1] .'/' . $stringParam;
+        } else {
+            return getRootFolder()."/".$arrControllerMethod[0]."/".$arrControllerMethod[1];
+        }
     }else{
         return getRootFolder();
     }

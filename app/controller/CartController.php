@@ -7,7 +7,7 @@ use App\Controller\Controller;
 
 class CartController extends Controller
 {
-    public function index(){
+    public function index($id, $name = null){
         //var_dump($GLOBALS['fullParams']);
         $data['info'] = 12;
         $data['header'] = [

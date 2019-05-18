@@ -18,7 +18,10 @@ if(!empty($strController)){
 
     $controller    = ucfirst($arrController[0] ?? 'home');
     $method        = $arrController[1] ?? 'index';
-
+    $queryString   = strpos($method, '?');
+    if($queryString !== false){
+        $method = substr($method, 0,$queryString);
+    }
 } else {
     $controller = 'Home';
     $method     = 'index';

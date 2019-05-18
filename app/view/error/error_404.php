@@ -21,7 +21,7 @@
         <hr>
         <div class="_1">THE PAGE</div>
         <div class="_2">WAS NOT FOUND</div>
-        <a class="btn" href="<?php echo redirect('home/exp/123'); ?>">BACK TO HOME</a>
+        <a class="btn" href="<?php echo redirect('cart/index',['id' => 1, 'name' => 'AAA']); ?>">BACK TO HOME</a>
     </div>
 </body>
 </html>
